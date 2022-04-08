@@ -1,0 +1,8 @@
+<h1>Editing character</h1>
+
+<%= render "form", character: @character %>
+<div class="mb-3">
+  <%= button_to "Destroy this character", @character, method: :delete, class:"btn btn-danger" %>
+</div>
+
+

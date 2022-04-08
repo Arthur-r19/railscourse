@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  vocation: MyString
+  level: MyString
+  race: MyString
+  residence: MyString
+  last_login: 2022-03-23 11:31:13
+
+two:
+  name: MyString
+  vocation: MyString
+  level: MyString
+  race: MyString
+  residence: MyString
+  last_login: 2022-03-23 11:31:13

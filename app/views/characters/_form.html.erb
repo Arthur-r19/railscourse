@@ -1,0 +1,38 @@
+<%= form_with(model: character) do |form| %>
+  <% if character.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(character.errors.count, "error") %> prohibited this character from being saved:</h2>
+
+      <ul>
+        <% character.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="mb-3 fw-bold">
+    <%= form.label :name, class:"form-label" %>
+    <%= form.text_field :name, class:"form-control" %>
+  </div>
+
+  <div class="mb-3 fw-bold">
+    <%= form.label :vocation, style: "display: block" %>
+    <%= form.select :vocation, ["Fighter", "Ranger", "Magician"], {}, {class: "form-select"}%>
+  </div>
+
+  <div class="mb-3 fw-bold">
+    <%= form.label :race, style: "display: block" %>
+    <%= form.select :race, ["Human", "Dwarf", "Elf", "Beastman"], {}, {class: "form-select"}%>
+  </div>
+
+  <div class="mb-3 fw-bold">
+    <%= form.label :residence, style: "display: block" %>
+    <%= form.select :residence, ["North Kingdom", "West Mountains", "South Forest", "East Plains"], {}, {class: "form-select"}%>
+  </div>
+
+  <div class="mb-3">
+    <%= form.submit class:"btn btn-success"%>
+    <%= link_to "Back to characters", characters_path, class:"btn btn-primary" %>
+  </div>
+<% end %>

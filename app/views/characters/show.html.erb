@@ -1,0 +1,36 @@
+<p style="color: green"></p>
+
+<%
+  case @character.vocation
+  when "Fighter"
+    @button_color = "btn btn-danger"
+  when "Ranger"
+    @button_color = "btn btn-success"
+  when "Magician"
+    @button_color = "btn btn-dark"
+  else
+    @button_color = "btn btn-secondary"
+  end %>
+
+<div class="container py-4">
+  <div class="p-5 mb-4 bg-light rounded-3">
+    <div class="container-fluid py-5">
+      <h class="display-5 fw-bold"><%= @character.name %> </h>
+      <p class="<%= @button_color %>"> <%= @character.vocation %></p>
+      <p class="col-md-8 fs-4">Level: <%= @character.level %></p>
+      <p class="col-md-8 fs-4">Race: <%= @character.race %></p>
+      <p class="col-md-8 fs-4">Residence: <%= @character.residence %></p>
+      <p class="col-md-8 fs-4">Created at: <%= @character.last_login %></p>
+      <div>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+          <%= link_to "Back to characters", characters_path, class:"btn btn-primary"  %>
+          <%= link_to "Edit", edit_character_path(@character), class:"btn btn-danger"  %>
+        </div>
+      </div>
+
+
+
+    </div>
+  </div>
+</div>
+
