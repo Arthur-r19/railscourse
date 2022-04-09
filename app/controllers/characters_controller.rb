@@ -11,16 +11,13 @@ class CharactersController < ApplicationController
     end
   end
 
+  # GET /all
+  def all
+    @characters = Character.all
+  end
+
   # GET /characters/1 or /characters/1.json
   def show
-    if current_user and @character.user == current_user
-
-    else
-      redirect_to characters_path,notice: "Character not found."
-    end
-    #redirect_to characters_path,notice: "Character not found." if not current_user or not current_user.characters.exists?(@character.id)
-    ##botar na view
-
   end
 
   # GET /characters/new
@@ -30,6 +27,11 @@ class CharactersController < ApplicationController
 
   # GET /characters/1/edit
   def edit
+    if current_user and @character.user == current_user
+
+    else
+      redirect_to characters_path ,notice: "You can't edit this character."
+    end
   end
 
   # POST /characters or /characters.json

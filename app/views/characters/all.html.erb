@@ -1,6 +1,6 @@
 <p style="color: green"></p>
 
-<h1>My Characters</h1>
+<h1>List of All Characters</h1>
 <% if @characters.length > 0  %>
   <div id="characters">
     <table class="table table-bordered table-hover">
@@ -13,7 +13,7 @@
         <th scope="col">Race</th>
         <th scope="col">Residence</th>
         <th scope="col">Created at</th>
-        <th colspan="2"></th>
+        <th colspan="1"></th>
       </tr>
       </thead>
       <tbody>
@@ -21,14 +21,13 @@
           <tr>
           <%= render character %>
           <td><%= link_to "Inspect", character, class:"btn btn-success btn-sm" %></td>
-          <td><%= link_to "Edit", edit_character_path(character), class:"btn btn-danger btn-sm" %></td>
           </tr>
         <% end %>
       </tbody>
     </table>
   </div>
 <% else %>
-  <p>You don't have any character :(</p>
+  <p>No Character Found.</p>
 <% end %>
 
 
