@@ -2,6 +2,8 @@ class CharactersController < ApplicationController
   before_action :set_character, only: %i[ show edit update destroy ]
   before_action :authenticate_user!, only: %i[ new create edit update destroy] #Precisa de login.
 
+  helper_method :sort_column, :sort_direction
+
   # GET /characters or /characters.json
   def index
     if user_signed_in?
@@ -13,7 +15,7 @@ class CharactersController < ApplicationController
 
   # GET /all
   def all
-    @characters = Character.all
+    @characters = Character.order(sort_column + ' ' + sort_direction)
   end
 
   # GET /characters/1 or /characters/1.json
@@ -84,4 +86,13 @@ class CharactersController < ApplicationController
     def character_params
       params.require(:character).permit(:name, :vocation, :race, :residence)
     end
+
+    def sort_column
+      (Character.column_names.include? params[:sort]) ? params[:sort] : 'id'
+    end
+
+    def sort_direction
+      (%w[asc desc].include? params[:direction]) ? params[:direction] : 'asc'
+    end
+
 end

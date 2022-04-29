@@ -6,12 +6,12 @@
     <table class="table table-bordered table-hover">
       <thead class="table-dark">
       <tr>
-        <th scope="col">#ID</th>
-        <th scope="col">Name</th>
-        <th scope="col">Vocation</th>
-        <th scope="col">Level</th>
-        <th scope="col">Race</th>
-        <th scope="col">Residence</th>
+        <th scope="col"><%= sortable 'id', '#ID'%></th>
+        <th scope="col"><%= sortable 'name'%></th>
+        <th scope="col"><%= sortable 'vocation'%></th>
+        <th scope="col"><%= sortable 'level'%></th>
+        <th scope="col"><%= sortable 'race'%></th>
+        <th scope="col"><%= sortable 'residence'%></th>
         <th scope="col">Created at</th>
         <th colspan="1"></th>
       </tr>
